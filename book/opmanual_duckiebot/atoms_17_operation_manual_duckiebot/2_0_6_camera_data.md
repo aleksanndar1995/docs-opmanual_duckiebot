@@ -42,7 +42,7 @@ If the image is all black, check that you have removed the lens cap.
 Start the container `rpi-docker-python-picamera`. It reads the camera
 image and writes it to `/data`.
 
-    laptop $ docker -H ![hostname].local run -d --name picam  --device /dev/vchiq duckietown/rpi-docker-python-picamera:master18
+    laptop $ docker -H ![hostname].local run -d --name picam --device /dev/vchiq -v /data:/data duckietown/rpi-docker-python-picamera:master18
 
 Then point your browser to the address
 
