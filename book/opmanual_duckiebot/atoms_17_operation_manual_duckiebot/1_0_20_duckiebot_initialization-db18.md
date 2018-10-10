@@ -28,6 +28,7 @@ Plug the SD card in the computer using the card reader.
 
 Then initalize it by running the command:
 
+<<<<<<< HEAD
 
     laptop $ dts init_sd_card [options]
 
@@ -46,6 +47,33 @@ For example, if your home network is "mynetwork" with password "mypassword", and
 
 Then follow the instructions that appear on screen:
 
+=======
+    laptop $ dts init_sd_card [options]
+
+The important options are:
+
+    --hostname         default: duckiebot
+    --linux-username   default: duckie
+    --linux-password   default: quackquack
+    --wifi             default: duckietown:quackquack
+    --country          default: US
+
+For a full list of the options, run 
+
+    laptop $ dts init_sd_card --help
+
+If you plan on connecting with the Duckiebot over different networks (e.g. at home and in class), you can list them like that (not there should be no space after the commas):
+
+    laptop $ dts init_sd_card --wifi duckietown:quackquack,myhomenetwork:myhomepassword,myuninetwork:myunipassword
+
+If you want to add additional networks later and you have to edit  the `/etc/wpa_supplicant/wpa_supplicant.conf` file in the `root` drive.
+
+If you are using a 16GB SD card, also add the `--compress` option.
+
+Note: \[For ETH Zurich students only\] To connect to the netoworks on campus use the `--ethz-username` and `--ethz-password` options. Keep in mind that the ETH network prevents hostname resolution so, in general, you won't be able to connect to yout Duckiebot despite it being connected to the internet.
+
+After you run the  `dts init_sd_card` command with your options follow the instructions that appear on screen:
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 - You will then have to enter your laptop's `sudo` password to run Etcher.
 
@@ -55,11 +83,15 @@ Then follow the instructions that appear on screen:
 
 When the SD card is completely written, you should arrive at `Press any key to continue`. Do so and the script will exit. 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 Note: on Ubuntu 16, you need to remove and re-insert the SD card. On Ubuntu 18 this is not necessary.
 
 If the procedure fails with errors about directories not mounted, be patient and do it again, this time leaving the SD card in.
 
+<<<<<<< HEAD
 If you plan on connecting with the Duckiebot over different networks (e.g. at home and in class), you can add their details before removing the SD card from your laptop. The SD card writing procedure should have created two new drives on your computer: `root` and `HyperiotOS`. In `HypriotOS` edit the file `user-data`. Find the lines with the SSID and password that you filled in already: 
 ``` 
 - content: |
@@ -104,11 +136,19 @@ You can then eject (safe remove) the drives and remove the SD card from your lap
 
 Warning: this will work only if done **before the first boot**. If you want to add additional networks later and you have to edit  the `/etc/wpa_supplicant/wpa_supplicant.conf` file in the `root` drive.
 
+=======
+On successful end of the procedure, you can eject (safe remove) the drives and remove the SD card from your laptop. 
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 ## Booting the Duckiebot {#duckiebot-boot}
 
 Now insert the SD card into the Raspberry PI and push the button on the battery to power things up. 
 
+<<<<<<< HEAD
+=======
+Warning: Don't charge the battery while you are doing the initialization (or in general when the Duckiebot is turned on). The external power supply might not be able to provide sufficient current and the Raspberry Pi will reboot. Should that happen during the initialization procedure, you will likely have to burn the SD card again.
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 You should immediately see the **green** light next to where the SD card was inserted start to blink with activity. 
 
 If not, stop, as there is a problem with the SD card (or possibly the PI, but this is unlikely).
@@ -156,6 +196,7 @@ If it doesn't work, check that `~/.ssh/config` contains something like:
 This configuration was added by the `init_sd_card` command.
 
 
+<<<<<<< HEAD
 ### Workarounds
 
 It is recommended that you immediately give ownership of your home folder to your user. You can do this by running the following on your Duckiebot:
@@ -163,6 +204,16 @@ It is recommended that you immediately give ownership of your home folder to you
 
     duckiebot $ sudo chown -R ![username]:![username] .
 
+=======
+## Securing your Duckiebot
+
+By default your Duckiebot uses an SSH key that is the same for all Duckiebots. That means that anyone can access your Duckiebot. If you want to prevent this (in particular if you have your university internet credentials on the Duckiebot), then remove this key by running
+
+    laptop $ ssh ![hostname] rm ~/.ssh/authorized_keys
+
+After this you will be prompted for your password every time you connect to your Duckiebot. If the password which you set in the SD card initialization process was not strong enough, or you kept the default password, we recommend you change it now.
+ 
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 ## Rebooting the PI {#setup-duckiebot-reboot}
 
 

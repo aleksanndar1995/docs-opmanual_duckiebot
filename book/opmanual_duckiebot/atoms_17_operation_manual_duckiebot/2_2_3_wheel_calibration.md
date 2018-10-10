@@ -13,6 +13,7 @@ when you command it to. Set the maximum speed of the Duckiebot.
 
 Comment: It might be helpful to talk about the ROS Parameter Server here, or at least
 reference another page. -AD
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 
 For the theoretical treatment of the odometry calibration see [](+learning_materials#odometry_calibration).
 
@@ -23,8 +24,16 @@ For the theoretical treatment of the odometry calibration see [](+learning_mater
 Follow instructions in [](#sec:rc-control) to make your robot movable either with a joystick or the keyboard. 
 
 Note: Whatever container you used in [](#sec:rc-control) needs to have the `-v /data:/data` flag set or the calibration will not persist on your Duckiebot.
+=======
+
+For the theoretical treatment of the odometry calibration see [](+learning_materials#odometry_calibration).
 
 
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
+
+## Step 1: Make your robot move
+
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 ## Step 2
 
 
@@ -37,8 +46,24 @@ If you just finished the [camera calibration step](#camera-calib) then you have 
 
 
 Get a base container running on your robot if you don't have one already:
+=======
+Follow instructions in [](#sec:rc-control) to make your robot movable either with a joystick or the keyboard. 
+
+Note: Whatever container you used in [](#sec:rc-control) needs to have the `-v /data:/data` flag set or the calibration will not persist on your Duckiebot.
 
 
+## Step 2
+
+
+### Docker 
+
+If you just finished the [camera calibration step](#camera-calib) then you have a docker terminal ready to use on your laptop.  
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
+
+### Docker + ROS
+
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
     duckiebot $ docker -H ![Duckiebot name].local run -it --net host --privileged  duckietown/rpi-duckiebot-base:master18
 
 
@@ -46,11 +71,28 @@ Get a base container running on your robot if you don't have one already:
 ## Step 3: Perform the Calibration
 
 
+=======
+
+Get a base container running on your robot if you don't have one already:
+
+
+    laptop $ docker -H ![hostname].local run -it --net host --privileged  duckietown/rpi-duckiebot-base:master18
+
+
+
+## Step 3: Perform the Calibration
+
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 ### Calibrating the `trim` parameter
 
 The trim parameter is set to $0.00$ by default, under the assumption that both motors and wheels are perfectly identical. You can change the value of the trim parameter by running the command:
 
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
     duckiebot $ rosservice call /![robot name]/inverse_kinematics_node/set_trim -- ![trim value]
+=======
+    duckiebot $ rosservice call /![hostname]/inverse_kinematics_node/set_trim -- ![trim value]
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 
 Use some tape to create a straight line on the floor ([](#fig:wheel_calibration_line)).
 
@@ -84,25 +126,36 @@ If the Duckiebot drifted by less than $10$ centimeters you can stop calibrating 
 
 If the Duckiebot drifted to the left side of the tape, decrease the value of $r$, by running, for example:
 
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
     duckiebot $ rosservice call /![robot name]/inverse_kinematics_node/set_trim -- -0.1
+=======
+    duckiebot $ rosservice call /![hostname]/inverse_kinematics_node/set_trim -- -0.1
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 
 If the Duckiebot drifted to the right side of the tape, increase the value of
 $r$, by running, for example:
 
-    duckiebot $ rosservice call /![robot name]/inverse_kinematics_node/set_trim -- 0.1
+    duckiebot $ rosservice call /![hostname]/inverse_kinematics_node/set_trim -- 0.1
 
 
+
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 
 Repeat this process until the robot drives straight
 
 
+=======
+Repeat this process until the robot drives straight
+
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 
 ### Calibrating the `gain` parameter
 
 The gain parameter is set to $1.00$ by default. You can change its value by
 running the command:
 
-    duckiebot $ rosservice call /![robot name]/inverse_kinematics_node/set_gain -- ![gain value]
+    duckiebot $ rosservice call /![hostname]/inverse_kinematics_node/set_gain -- ![gain value]
 
 You won't really know if it's right until you verify it though! onto the next section
 
@@ -141,7 +194,7 @@ You should see your robot drive down the lane. If it is calibrated properly, you
 
 When you are all done, save the parameters by running:
 
-    duckiebot $ rosservice call /![robot name]/inverse_kinematics_node/save_calibration
+    duckiebot $ rosservice call /![hostname]/inverse_kinematics_node/save_calibration
 
 The first time you save the parameters, this command will create the file
 
@@ -149,4 +202,8 @@ The first time you save the parameters, this command will create the file
 ### Final Check to make sure it's stored
 
 
+<<<<<<< HEAD:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md
 Assuming your are running an HTTP server, point your browser to `http://![Duckiebot name].local:8082/config/calibrations/kinematics/![Duckiebot name].yaml`
+=======
+Assuming your are running an HTTP server, point your browser to `http://![hostname].local:8082/config/calibrations/kinematics/![hostname].yaml`
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f:book/opmanual_duckiebot/atoms_17_operation_manual_duckiebot/2_2_3_wheel_calibration.md

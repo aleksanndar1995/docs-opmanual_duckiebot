@@ -11,12 +11,20 @@ Requires: You have configured Docker communication as documented in [](#docker-s
 
 Results: Calibration for the robot camera.
 </div>
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 ## Materials
 
 Download and print a PDF of the calibration checkerboard:
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 - [US Letter](https://github.com/duckietown/Software/blob/master18/catkin_ws/src/00-infrastructure/duckietown/config/baseline/calibration/camera_intrinsic/calibration_pattern.pdf).
 
 TODO: create the A4 version
@@ -30,7 +38,11 @@ Download and print a PDF of the calibration checkerboard.
 
 Note: the squares must have side equal to 0.031 m = 3.1 cm. Please measure this, as having the wrong size will make your Duckiebot crash.
 
+<<<<<<< HEAD
 Note: If you live in Europe you probably have A4 paper. Print with scale = 100%. And do measure the sides of the squares before calibration. 
+=======
+Note: If you live in Europe you probably have A4 paper. Print with scale = 100%. And do measure the sides of the squares before calibration.
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 Fix the checkerboard to a rigid planar surface that you can move around.
 
@@ -43,28 +55,49 @@ You will also need a "lane" during the extrinsics calibration procedure.
 This is not 100% necessary.
 
 
+<<<<<<< HEAD
 ## Start calibration program 
+=======
+## Start calibration program
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 Make sure your Duckiebot is on, and both your laptop and Duckiebot are connected to the duckietown network.
 
 These commands assume that you have completed the steps in [](#docker-setup),
 and in particular that you set `DOCKER_HOST` correctly.
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 Make sure your camera is on and the images are being published to ROS
 using the `rpi-duckiebot-ros-picam` container:
 
+<<<<<<< HEAD
     laptop $ docker -H ![Duckiebot name].local run -it --name ros-picam --network=host  --device /dev/vchiq -v /data:/data duckietown/rpi-duckiebot-ros-picam:master18 
     
+=======
+    laptop $ docker -H ![hostname].local run -it --name ros-picam --network=host  --device /dev/vchiq -v /data:/data duckietown/rpi-duckiebot-ros-picam:master18
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 Note in particular the switch `-v /data:/data`. It was not really needed before, but now it is essential because it is this container that will save the intrinsic calibration files to the `/data` directory.   
 
 On your laptop run:
 
+<<<<<<< HEAD
     laptop $ dts calibrate ![Duckiebot name]
 
 Hit <kbd>Enter</kbd> and follow the instructions.
 
  
+=======
+    laptop $ dts calibrate ![hostname]
+
+Hit <kbd>Enter</kbd> and follow the instructions.
+
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 <!--
 
 #### ROS {status=deprecated}
@@ -140,15 +173,26 @@ If you are satisfied with the calibration, you can save the results by pressing 
 This will automatically save the calibration results on your Duckiebot:
 
 ```
+<<<<<<< HEAD
 /data/config/calibrations/camera_intrinsic/![Duckiebot name].yaml
 ```
 
 If you are running the file server through docker you can view or download the calibration file at the address: `http://![Duckiebot name].local:8082/config/calibrations/camera_intrinsic/![Duckiebot name].yaml`
+=======
+/data/config/calibrations/camera_intrinsic/![hostname].yaml
+```
+
+If you are running the file server through docker you can view or download the calibration file at the address: `http://![hostname].local:8082/config/calibrations/camera_intrinsic/![hostname].yaml`
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 
 ### Keeping your calibration valid
 
+<<<<<<< HEAD
 Warning: Do not change the focus during or after the calibration, otherwise your calibration is no longer valid. 
+=======
+Warning: Do not change the focus during or after the calibration, otherwise your calibration is no longer valid.
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 Warning: Do not use the lens cover anymore; removing the lens cover changes the focus.
 
@@ -175,8 +219,13 @@ Arrange the Duckiebot and checkerboard according to [](#fig:extrinsic_setup2). N
 ### Docker
 
 If you ran
+<<<<<<< HEAD
     
     $ dts calibrate ![Duckiebot name] 
+=======
+
+  laptop  $ dts calibrate ![hostname]
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 then the same terminal will immediately take you into the extrinsic calibration step. After the following Setup step, push <kbd>Enter</kbd>.
 
@@ -190,7 +239,11 @@ TODO: make this a separate procedure, so that we can re-do the extrinsics withou
 Run the following on the Duckiebot:
 
     duckiebot $ rosrun complete_image_pipeline calibrate_extrinsics
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 Followed by the following command for verification:
 
     duckiebot $ rosrun complete_image_pipeline single_image_pipeline
@@ -198,6 +251,7 @@ Followed by the following command for verification:
 
 ### Verifying the Results
 
+<<<<<<< HEAD
 You can view or download the files at 
 
     http://![Duckiebot name].local:8082/
@@ -210,6 +264,20 @@ In that directory there are the results of the testing and the actual calibratio
 You can also see the output of the diagnostics at 
 
     http://![Duckiebot name].local:8082/out-calibrate-extrinsics-YYYYMMDDHHMMSS/
+=======
+You can view or download the files at
+
+    http://![hostname].local:8082/
+
+
+In that directory there are the results of the testing and the actual calibration files. The calibration file is at
+
+    http://![hostname].local:8082/config/calibrations/camera_extrinsic/![hostname].yaml
+
+You can also see the output of the diagnostics at
+
+    http://![hostname].local:8082/out-calibrate-extrinsics-YYYYMMDDHHMMSS/
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
 
 It should look like [](#fig:calibrate_extrinsics1).
@@ -264,6 +332,13 @@ What this does is taking one snapshot and performing localization on that single
 
 The output will be useful to check that everything is ok.
 
+<<<<<<< HEAD
+=======
+You can see the output of the diagnostics at
+
+    http://![hostname].local:8082/out-pipeline-![hostname]-YYYYMMDDHHMMSS/
+
+>>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 [](#fig:oneshot1_all) is an example in which the calibration was correct, and the robot
 localizes perfectly.
 
