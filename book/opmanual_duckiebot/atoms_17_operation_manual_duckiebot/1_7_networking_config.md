@@ -105,7 +105,7 @@ This method assumes that you can connect your laptop to a network but it is one 
 Now, you should be able to SSH to your Duckiebot:
 
 ```
-laptop $ ssh ![DUCKIEBOT_NAME]
+laptop $ ssh ![hostname]
 ```
 
 Check whether you can access the internet from your Duckiebot:
@@ -148,8 +148,12 @@ laptop $ docker save duckietown/![image-name] | ssh -C ![username]@![hostname].l
 Since we are primarily using the internet to pull Docker images, we can simply connect the laptop and the Duckiebot then push Docker images from the laptop over SSH like so:
 
 ```
+<<<<<<< HEAD
 laptop $ docker save duckietown/![image-name] | ssh -C ![DUCKIEBOT NAME] docker load
 >>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
+=======
+laptop $ docker save duckietown/![image-name] | ssh -C ![hostname] docker load
+>>>>>>> 9c7de234eebb46f97edc11fdce974063baef4697
 ```
 
 Then the image will be available on your Duckiebot.

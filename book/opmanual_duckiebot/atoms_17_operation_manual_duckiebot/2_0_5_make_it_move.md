@@ -78,6 +78,8 @@ On your laptop run:
     laptop $ dts keyboard_control ![hostname]
 >>>>>>> 88ddc636f2fb1d7163d61734f43576156d2d037f
 
+Note: Make sure you enter the Duckiebot's hostname with the same capitalization that you used when setting up the SD card.
+
 Note: Currently not working for Mac OSX - the window pops up but the robot won't move - this is expected for now
 
 TODO: Liam fix this
