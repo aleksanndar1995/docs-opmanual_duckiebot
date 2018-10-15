@@ -118,52 +118,42 @@ Here's an explanation of some of the options we use most often in Duckietown:
     <span>Full comamnd</span>
     <span>Example</span>
     <span>Explanation</span>
-
     <span>`-i`</span>
     <span>`--interactive`</span>
     <span></span>
     <span>Keep STDIN open even if not attached, typically used together with `-t`.</span>
-
     <span>`-t`</span>
     <span>`--tty`</span>
     <span></span>
     <span>Allocate a pseudo-TTY, gives you terminal access to the container, typically used together with `-i`.</span>
-
     <span>`-d`</span>
     <span>`--detach`</span>
     <span></span>
     <span>Run container in background and print container ID.</span>
-
     <span>`-v`</span>
     <span>`--volume`</span>
     <span>`-v /home/myuser/data:/data`</span>
     <span>Bind mount a volume, exposes a folder on your host (`/home/myuser/data`) as a folder in your container (`/data`). Be very careful when using this.</span>
-
     <span>`-p`</span>
     <span>`--publish`</span>
     <span>`-p 8082:8080`</span>
     <span>Publish a container's port(s) to the host, necessary when you need a port to communicate with a program in your container. Your host's port `8082` will be mapped to the container's `8080`.</span>
-
     <span>`-d`</span>
     <span>`--device`</span>
     <span>`-d /dev/mmcblk0`</span>
     <span>Similar to `-v` but for devices. This grants the container access to the `/dev/mmcblk0` device. Be very careful when using this.</span>
-
     <span></span>
     <span>`--privileged`</span>
     <span></span>
     <span>Give extended privileges to this container. That includes access to **all** devices. Be **extremely** careful when using this.</span>
-
     <span></span>
     <span>`--rm`</span>
     <span></span>
     <span>Automatically remove the container when it exits.</span>
-
     <span>`-H`</span>
     <span>`--hostname`</span>
     <span>`docker -H duckiebot.local`</span>
     <span>Specifies remote host name, for example when you want to execute the command on your Duckiebot, not on your computer.</span>
-
     <span></span>
     <span>`--help`</span>
     <span></span>
