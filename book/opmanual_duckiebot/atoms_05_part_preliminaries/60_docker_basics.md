@@ -11,14 +11,14 @@ Containerization is a process that allows partitioning the hardware and the kern
 Containers are often compared to virtual machines (VMs). The main difference is that VMs require a host operating system (OS) with a hypervisor and a number of guest OS, each with their own libraries and application code. This can result in a significant overhead. Imagine running a simple Ubuntu server in a VM on Ubuntu: you will have most of the kernel libraries and binaries twice and a lot of the processes will be duplicated on the host and on the guest. Containerization, on the other hand, leverages the existing kernel and OS and adds only the additional binaries, libraries and code necessary to run a given application. See the illustration bellow.
 
 <figure class="flow-subfigures">  
-    <figcaption>Comparison between containers and VMs (from [docker.com](https://docs.docker.com/get-started/))</figcaption>
+    <figcaption>Comparison between containers and VMs (from <a href="https://docs.docker.com/get-started/">docker.com</a> )</figcaption>
     <figure>
         <figcaption>Using containers</figcaption>
-        <img style='width:20em' src="images/docker-containerVM.png"/>
+        <img style='width:10em' src="images/docker-containerVM.png"/>
     </figure>
     <figure>  
         <figcaption>Using VMs</figcaption>
-        <img style='width:20em' src="images/docker-containerVM2.png"/>
+        <img style='width:10em' src="images/docker-containerVM2.png"/>
     </figure>
 </figure>  
 
